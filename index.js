@@ -61,11 +61,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(name) {
-  const Name = {
-    name: name,
-  }
-  return `Hello, my name is ${Name.name}`
+function getName(makePersonObject) {
+  return `Hello, my name is ${makePersonObject.name}`
 }
 
 /**
@@ -82,17 +79,17 @@ function getName(name) {
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
 function makeSmartPerson(name) {
-  const smartPerson = {
-    name: name, 
+  const smartName ={
+    name: name,
+    sum: function(num1, num2) {
+      return num1 + num2
+    },
+    speak: function(name) {
+      return `Hello, my name is ${smartName.name}`
+    }
   }
-  function sum(num1, num2){
-    return num1 + num2;
-  }
-  function speak(name){
-    return `Hello, my name is ${name}`
-  }
+  return smartName;
 }
-
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -150,7 +147,7 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   const carInfoByIndex = inventory.find((item, index) => {
-    return index === item
+    return index === 0
   })
   return `This is a ${carInfoByIndex.car_make} ${carInfoByIndex.car_model}`
 }
@@ -182,8 +179,8 @@ function getLastCarInfo(inventory) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, id) {
+  return `This is a ${inventory[id-1].car_make} ${inventory[id-1].car_model}`
 }
 
 /**
