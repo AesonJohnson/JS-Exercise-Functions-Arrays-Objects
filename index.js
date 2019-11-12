@@ -194,7 +194,7 @@ function getCarInfoById(inventory, id) {
 function sortCarInventory(inventory) {
   return inventory.sort(function (a, b) {
     if (a.car_model > b.car_model) {
-      return 1;
+      return 1
     } else {
       return -1;
     }
